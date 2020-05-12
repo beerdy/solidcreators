@@ -1,0 +1,195 @@
+<script>
+function pageTo(page){
+  var p = $("#"+page);
+  var offset = p.offset();
+  console.log(offset.top);
+  $("html, body").animate({
+          scrollTop: offset.top-100+"px"
+      }, 1000);
+
+  return false;
+}
+
+$(window).scroll(function(){
+  var p = $("#home");
+  var offset = p.offset();
+
+      if ($(this).scrollTop() > offset.top/1.5) {
+          $('.buttonUp').addClass('yes');
+      } else {
+          $('.buttonUp').removeClass('yes');
+      }
+
+      if ($(this).scrollTop() > 50) {
+          $('.header').addClass('small');
+      } else {
+          $('.header').removeClass('small');
+      }
+});
+
+function bigMenu(it){
+  console.log('OpenMenu');
+  $('.bigMenu').toggleClass('active');
+  $('.menuiBlock').toggleClass('active');
+  return false;
+}
+
+function bigMenu(it){
+  console.log('OpenMenu');
+  $('.bigMenu').toggleClass('active');
+  $('.menuiBlock').toggleClass('active');
+  return false;
+}
+
+</script>
+<header class="header animated fadeInDown">
+  <nav class="menu">
+    <a href="/" class="logoBlock"><b>Solid</b> Creators</a><div class="iteamPr"></div>
+    <a href="#service" class="iteam" onclick="return pageTo('service');">Услуги</a>
+    <a href="#projects" class="iteam" onclick="return pageTo('projects');">Работы</a>
+    <a href="#contacts" class="iteam" onclick="return pageTo('contacts');">Контакты</a>
+    <a href="#order" class="orderB" onclick="return pageTo('order');">Заказать</a>
+    <a class="menuiBlock" href="/contacts" onclick="return bigMenu(this);"><span></span></a>
+  </nav>
+</header>
+
+<section id="home" class="contentpage animated fadeIn">
+  <div class="slider">
+    <ul class="sliderwrapper">
+      <% Slider.all.each do |slide| %>
+      <li class="slide" style="background-image:linear-gradient(90deg, rgba(0, 0, 0, 0.69) 0%, rgba(20, 32, 44, 0.69) 100%), url('<%= slide.gallery.url %>');">
+        <div class="slideContent">
+          <div class="textBox">
+            <p><%= slide.description.html_safe %></p>
+            <div class="word1"><%= slide.word1.html_safe %></div>
+            <div class="word2"><%= slide.word2.html_safe %></div>
+          </div>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+    <div class="prev-btn"></div>
+    <div class="next-btn"></div>
+  </div>
+</section>
+
+<section id="service" class="contentpage">
+  <div class="contentpage_box">
+    <div class="contentpage_box_flex">
+      <div class="headerLine">
+        <div class="headerLineGeneral">услуги</div>
+        <div class="headerLineSmall"><%= @services.html_safe %></div>
+      </div>
+      <% Product.all.each do |product| %>
+      <div class="serviceIteam" style="background:url('<%= product.gallery.url %>') no-repeat left top;">
+        <h3><%= product.title %></h3>
+        <p><%= product.description.html_safe %></p>
+      </div>
+      <% end %>
+      <a class="serviceIteam button" onclick="return pageTo('order');" href="#order">
+        Заказать
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="order" class="contentpage">
+  <div class="contentpage_box">
+    <div class="contentpage_box_flex">
+      <div class="headerLineCenter">Сделать заказ</div>
+      <p><%= @makeorder.html_safe %></p>
+      <%= form_with(model: @message, id: 'form1') do |form| %>
+        <% if @message.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+            <ul>
+            <% @message.errors.full_messages.each do |message| %>
+              <li><%= @message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <div style="overflow:hidden">
+          <%= form.text_field :title, value:  "Заказ",  type: 'hidden' %>
+          <%= form.text_field :name,  placeholder:  "Ваше имя",  class: "typeLine" %>
+          <%= form.text_field :phone, placeholder: "+7 ___",     class: "typeLine" %>
+          <%= form.text_field :slave, placeholder: "Какая услуга Вас интересует?", class: "typeLine" %>
+        </div>
+        <input type="submit" class="buttonA" value="Отправить"> 
+      <% end %>
+      <small>При отправке формы Вы соглашаетесь на обработку персональных данных</small>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="contentpage">
+  <div class="contentpage_box">
+    <div class="contentpage_box_flex">
+      <div class="headerLine">
+        <div class="headerLineGeneral">Проекты</div>
+        <div class="headerLineSmall"><%= @projects.html_safe %></div>
+      </div>
+      <% Project.all.each do |project| %>
+      <div class="projectIteam">
+        <h3><%= project.title.upcase %></h3>
+        <p><%= project.description.html_safe %></p>
+        <div class="image" style="background-image:url('<%= project.gallery.url %>')"></div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section id="contacts" class="contentpage">
+  <div class="contentpage_box">
+    <div class="contentpage_box_flex">
+      <div class="headerLineCenter">Контакты</div>
+      <p><%= @contacts.html_safe %></p>
+      <div style="overflow:hidden;margin:0 0 20px 0;">
+        <div class="phone"><%= @phone.html_safe %></div>
+        <div class="mail"><%= @email.html_safe %></div>
+        <div class="place"><%= @place.html_safe %></div>
+      </div>
+      <%= @map.html_safe %>
+      <h4>Обратная связь</h4>
+      <%= form_with(model: @message, id: 'form2' ) do |form| %>
+        <% if @message.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+            <ul>
+            <% @message.errors.full_messages.each do |message| %>
+              <li><%= @message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div style="overflow:hidden">
+          <%= form.text_field :title, value:  "Обратная связь",  class: "typeLine", type: 'hidden' %>
+          <%= form.text_field :name,  placeholder:  "Ваше имя",  class: "typeLine" %>
+          <%= form.text_field :phone, placeholder: "+7 ___",     class: "typeLine" %>
+          <%= form.text_field :slave, placeholder: "Тема вопроса", class: "typeLine" %>
+          <%= form.text_area  :description, placeholder: "Опишите подробности обращения", class: "typeTexta" %>
+        </div>
+
+        <input type="submit" class="buttonA" value="Отправить"> 
+      <% end %>
+
+      <small>При отправке формы Вы соглашаетесь на обработку персональных данных</small>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="name">Solid Creators</div>
+  Все права защищены &copy; <%= Date.today.year %>
+</footer>
+
+<div class="bigMenu">
+  <a class="bigMenu_list order" href="#order" onclick="pageTo('order');">Заказать</a>
+    <a class="bigMenu_list" href="#service" onclick="pageTo('service');">Услуги</a>
+    <a class="bigMenu_list" href="#projects" onclick="pageTo('projects');">Работы</a>
+    <a class="bigMenu_list" href="#contacts" onclick="pageTo('contacts');">Контакты</a>
+</div>
