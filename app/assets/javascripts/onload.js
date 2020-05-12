@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
     console.log('form1 sended');
   });
   form1.addEventListener("ajax:error", () => {
-    form1.insertAdjacentHTML("beforeend", "<div class='message error'>Ошибка отправки формы!</div>");
+    form1.insertAdjacentHTML("beforeend", "<div class='message error'>Ошибка отправки формы! Заполните все поля!</div>");
     console.log('error form1 sending');
   });
 
@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
     console.log('form2 sended');
   });
   form2.addEventListener("ajax:error", () => {
-    form2.insertAdjacentHTML("beforeend", "<div class='message error'>Ошибка отправки формы!</div>");
+    form2.insertAdjacentHTML("beforeend", "<div class='message error'>Ошибка отправки формы! Заполните все поля!</div>");
     console.log('error form2 sending');
   });
 });
