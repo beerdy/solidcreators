@@ -64,6 +64,8 @@ quotes: "" "";
 strong, b{
 
 }
+
+input, button { -webkit-appearance: none;}
 /*Обнулили все значения, чтобы во всех браузерах все было одинаково*/
 
 * {
@@ -1061,7 +1063,7 @@ footer{
 	    display: block;
 	    width: 100%;
 	    float: left;
-	    margin: 1%;
+	    margin:1% 0 1% 0;
 	}
 
 	#contacts .phone, #contacts .mail, #contacts .place {
@@ -1073,8 +1075,12 @@ footer{
 		    display: block;
 		    width: 100%;
 		    float: left;
-		    margin: 1%;
+		    margin:1% 0 1% 0;
 	}
 
+	#contacts textarea.typeTexta{
+	 width:100%;
+		margin:1% 0 1% 0;
+	}
 
 }
