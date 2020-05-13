@@ -880,7 +880,7 @@ footer{
 
     /* active state, i.e. menu open */
     .menuiBlock.active {
-      background-color: ;
+      background-color: none;
     }
 
     .menuiBlock.active span {
