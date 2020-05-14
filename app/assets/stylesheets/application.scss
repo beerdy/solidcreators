@@ -2,8 +2,8 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ * Any CSS and SCSS file within this directory, libstylesheets, or any plugin's
+ * vendorstylesheets directory can be referenced here using a relative path.
  *
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
@@ -454,7 +454,7 @@ section.contentpage{
 				    height:100%;
 				    list-style: none;
 				    float: left;
-				    background:linear-gradient(90deg, rgba(0, 0, 0, 0.69) 0%, rgba(20, 32, 44, 0.69) 100%), url('/assets/slide.jpg') no-repeat center bottom;
+				    background:linear-gradient(90deg, rgba(0, 0, 0, 0.69) 0%, rgba(20, 32, 44, 0.69) 100%), url('slide.jpg') no-repeat center bottom;
 				    background-position: center;
 				    background-size: cover;
 				}
@@ -489,7 +489,7 @@ section.contentpage{
 
 					.next-btn {
 					    right: 20px;
-					    background:image-url('assets/next.svg') no-repeat center;
+					    background:image-url('next.svg') no-repeat center;
 					    background-size: cover;
 					}
 
@@ -503,22 +503,22 @@ section.contentpage{
 		padding-right:4%;
 		padding-top:15px;
 		padding-bottom:40px;
-		background:image-url('/assets/s01.svg') no-repeat left top;
+		background:image-url('s01.svg') no-repeat left top;
 	}	
 		#service .serviceIteam.s01{
-			background:image-url('/assets/s01.svg') no-repeat left top;
+			background:image-url('s01.svg') no-repeat left top;
 		}
 		#service .serviceIteam.s02{
-			background:image-url('/assets/s02.svg') no-repeat left top;
+			background:image-url('s02.svg') no-repeat left top;
 		}
 		#service .serviceIteam.s03{
-			background:image-url('/assets/s03.svg') no-repeat left top;
+			background:image-url('s03.svg') no-repeat left top;
 		}
 		#service .serviceIteam.s04{
-			background:image-url('/assets/s04.svg') no-repeat left top;
+			background:image-url('s04.svg') no-repeat left top;
 		}
 		#service .serviceIteam.s05{
-			background:image-url('/assets/s05.svg') no-repeat left top;
+			background:image-url('s05.svg') no-repeat left top;
 		}
 
 	#service .serviceIteam {
@@ -528,7 +528,7 @@ section.contentpage{
 		padding-right:4%;
 		padding-top:15px;
 		padding-bottom:40px;
-		background:image-url('/assets/s01.svg') no-repeat left top;
+		background:image-url('s01.svg') no-repeat left top;
 	}
 	#service .serviceIteam.button{
 		width:33.33%;
@@ -695,20 +695,20 @@ section.contentpage{
 	    line-height: 35px;
 	    letter-spacing: 1px;
 	    padding-left: 45px; 
-	    background:image-url('/assets/phone.svg') no-repeat left top;
+	    background:image-url('phone.svg') no-repeat left top;
 	}
 
 	.phone{
-		background:image-url('/assets/phone.svg') no-repeat left top;
+		background:image-url('phone.svg') no-repeat left top;
 	}
 
 	#contacts .mail{
- 		background:image-url('/assets/mail.svg') no-repeat left top;
+ 		background:image-url('mail.svg') no-repeat left top;
 	}
 
 	#contacts .place{
 		width: 40%;
- 		background:image-url('/assets/place.svg') no-repeat left top;
+ 		background:image-url('place.svg') no-repeat left top;
 	}
 
 	#contacts .map{
@@ -1016,7 +1016,7 @@ footer{
 	    content: '';
 	    width: 100%;
 	    height: 100vh;
-	    background: url(/assets/quad.svg) no-repeat center bottom;
+	    background: url(quad.svg) no-repeat center bottom;
 	}
 		.rightMenu,	.leftMenu{
 			display: none;
