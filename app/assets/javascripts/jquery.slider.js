@@ -1,5 +1,4 @@
 var slideNow = 1;
-var slideCount = 2;
 var slideInterval = 5000;
 var navBtnId = 0;
 var translateWidth = 0;
@@ -27,7 +26,7 @@ $(document).ready(function() {
 
 
 function nextSlide() {
-    if (slideNow == slideCount || slideNow <= 0 || slideNow > slideCount) {
+    if (slideNow == window.slideCount || slideNow <= 0 || slideNow > window.slideCount) {
         $('.sliderwrapper').css('transform', 'translate(0, 0)');
         slideNow = 1;
     } else {
@@ -42,16 +41,16 @@ function nextSlide() {
 }
 
 function prevSlide() {
-    if (slideNow == 1 || slideNow <= 0 || slideNow > slideCount) {
-        translateWidth = -$('#home').width() * (slideCount - 1);
+    if (slideNow == 1 || slideNow <= 0 || slideNow > window.slideCount) {
+        translateWidth = -$('#home').width() * (window.slideCount - 1);
         $('.sliderwrapper').css({
             'transform': 'translate(' + translateWidth + 'px, 0)',
             '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
             '-ms-transform': 'translate(' + translateWidth + 'px, 0)',
         });
-        slideNow = slideCount;
+        slideNow = window.slideCount;
     } else {
-        translateWidth = -$('#home').width() * (slideNow - 2);
+        translateWidth = -$('#home').width() * (slideNow - window.slideCount);
         $('.sliderwrapper').css({
             'transform': 'translate(' + translateWidth + 'px, 0)',
             '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
