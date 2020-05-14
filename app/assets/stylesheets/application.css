@@ -372,7 +372,7 @@ section.contentpage{
 		content:'';
 		width:100%;
 		height:100vh;
-		background:url('/assets/quad.svg') no-repeat center bottom;
+		background: image-url('quad.svg') no-repeat center bottom;
 	}
 
 	#home .textBox{
@@ -483,13 +483,13 @@ section.contentpage{
 
 					.prev-btn {
 					    left: 20px;
-					    background:url('/assets/prev.svg') no-repeat center;
+					    background:image-url('prev.svg') no-repeat center;
 					    background-size: cover;
 					}
 
 					.next-btn {
 					    right: 20px;
-					    background:url('/assets/next.svg') no-repeat center;
+					    background:image-url('assets/next.svg') no-repeat center;
 					    background-size: cover;
 					}
 
@@ -503,22 +503,22 @@ section.contentpage{
 		padding-right:4%;
 		padding-top:15px;
 		padding-bottom:40px;
-		background:url('/assets/s01.svg') no-repeat left top;
+		background:image-url('/assets/s01.svg') no-repeat left top;
 	}	
 		#service .serviceIteam.s01{
-			background:url('/assets/s01.svg') no-repeat left top;
+			background:image-url('/assets/s01.svg') no-repeat left top;
 		}
 		#service .serviceIteam.s02{
-			background:url('/assets/s02.svg') no-repeat left top;
+			background:image-url('/assets/s02.svg') no-repeat left top;
 		}
 		#service .serviceIteam.s03{
-			background:url('/assets/s03.svg') no-repeat left top;
+			background:image-url('/assets/s03.svg') no-repeat left top;
 		}
 		#service .serviceIteam.s04{
-			background:url('/assets/s04.svg') no-repeat left top;
+			background:image-url('/assets/s04.svg') no-repeat left top;
 		}
 		#service .serviceIteam.s05{
-			background:url('/assets/s05.svg') no-repeat left top;
+			background:image-url('/assets/s05.svg') no-repeat left top;
 		}
 
 	#service .serviceIteam {
@@ -528,7 +528,7 @@ section.contentpage{
 		padding-right:4%;
 		padding-top:15px;
 		padding-bottom:40px;
-		background:url('/assets/s01.svg') no-repeat left top;
+		background:image-url('/assets/s01.svg') no-repeat left top;
 	}
 	#service .serviceIteam.button{
 		width:33.33%;
@@ -695,20 +695,20 @@ section.contentpage{
 	    line-height: 35px;
 	    letter-spacing: 1px;
 	    padding-left: 45px; 
-	    background:url('/assets/phone.svg') no-repeat left top;
+	    background:image-url('/assets/phone.svg') no-repeat left top;
 	}
 
 	.phone{
-		background:url('/assets/phone.svg') no-repeat left top;
+		background:image-url('/assets/phone.svg') no-repeat left top;
 	}
 
 	#contacts .mail{
- 		background:url('/assets/mail.svg') no-repeat left top;
+ 		background:image-url('/assets/mail.svg') no-repeat left top;
 	}
 
 	#contacts .place{
 		width: 40%;
- 		background:url('/assets/place.svg') no-repeat left top;
+ 		background:image-url('/assets/place.svg') no-repeat left top;
 	}
 
 	#contacts .map{
