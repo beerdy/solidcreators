@@ -4,7 +4,7 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <style type="text/css">
-      <% if @options.slider_dots %>
+      <% if @options.try(:slider_dots) %>
       #home:after { display: block !important; }
       <% end %>
     </style>

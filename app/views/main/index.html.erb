@@ -60,12 +60,12 @@ function bigMenu(it){
   <div class="slider">
     <ul class="sliderwrapper">
       <% sliders.each do |slide| %>
-      <li class="slide" style="background-image:<%= @options.slider_shawod ? 'linear-gradient(90deg, rgba(0, 0, 0, 0.69) 0%, rgba(20, 32, 44, 0.69) 100%),':'' %> url('<%= slide.gallery.url %>');">
+      <li class="slide" style="background-image:<%= @options.try(:slider_shawod) ? 'linear-gradient(90deg, rgba(0, 0, 0, 0.69) 0%, rgba(20, 32, 44, 0.69) 100%),':'' %> url('<%= slide.gallery.url %>');">
         <div class="slideContent">
           <div class="textBox">
-            <p><%= slide.description.html_safe %></p>
-            <div class="word1"><%= slide.word1.html_safe %></div>
-            <div class="word2"><%= slide.word2.html_safe %></div>
+            <p><%= slide.description.html_safe if slide.description %></p>
+            <div class="word1"><%= slide.word1.html_safe if slide.word1 %></div>
+            <div class="word2"><%= slide.word2.html_safe if slide.word2 %></div>
           </div>
         </div>
       </li>
@@ -86,7 +86,7 @@ function bigMenu(it){
       <% Product.all.each do |product| %>
       <div class="serviceIteam" style="background:url('<%= product.gallery.url %>') no-repeat left top;">
         <h3><%= product.title %></h3>
-        <p><%= product.description.html_safe %></p>
+        <p><%= product.description.html_safe if product.description %></p>
       </div>
       <% end %>
       <a class="serviceIteam button" onclick="return pageTo('order');" href="#order">
@@ -136,7 +136,7 @@ function bigMenu(it){
       <% Project.all.each do |project| %>
       <div class="projectIteam">
         <h3><%= project.title.upcase %></h3>
-        <p><%= project.description.html_safe %></p>
+        <p><%= project.description.html_safe if project.description %></p>
         <div class="image" style="background-image:url('<%= project.gallery.url %>')"></div>
       </div>
       <% end %>
