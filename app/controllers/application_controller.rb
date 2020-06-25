@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
       @map       = content.description if content.url == 'map'
       @footer    = content.description if content.url == 'footer'
     end
-  
+    
+    @options = Option.last
   end
 end

@@ -3,6 +3,11 @@
   <head>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <style type="text/css">
+      <% if @options.slider_dots %>
+      #home:after { display: block !important; }
+      <% end %>
+    </style>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= @head_body.html_safe %>

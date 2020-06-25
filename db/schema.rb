@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_153056) do
+ActiveRecord::Schema.define(version: 2020_06_25_065653) do
 
   create_table "contents", force: :cascade do |t|
     t.string "title"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(version: 2020_05_12_153056) do
     t.text "description"
     t.text "slave"
     t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.boolean "slider_shawod"
+    t.boolean "slider_dots"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

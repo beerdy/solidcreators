@@ -26,6 +26,7 @@ ru:
       product: 'Продукция'
       user: 'Пользователи'
       project: 'Проекты'
+      option: 'Опции сайта'
     attributes:
       shared: &shared
         title: 'Наименование'
@@ -38,6 +39,9 @@ ru:
         show: 'Скрыть'
         gallery: 'Изображение'
       shared1: &shared1
+      option:
+        slider_shawod: 'Слайдера - тень'
+        slider_dots: 'Слайдер - точки '
       service:
         <<: *shared
         <<: *shared1
