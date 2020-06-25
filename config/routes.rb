@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  resources :options
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   root 'main#index'
 
   devise_for :users
 
-  # resources :projects
   resources :messages
+  # resources :projects
+  # resources :options
   # resources :galleries
   # resources :contents
   # resources :products
