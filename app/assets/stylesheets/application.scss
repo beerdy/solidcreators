@@ -361,7 +361,6 @@ section.contentpage{
 
 #home{
 	width:100%;
-	height:100vh;
 	background:#555;
 	padding: 0;
 }
@@ -372,24 +371,22 @@ section.contentpage{
 		left:0;
 		content:'';
 		width:100%;
-		height:100vh;
-		background: image-url('quad.svg') no-repeat center bottom;
 	}
 
 	#home .textBox{
-		position: absolute;
-		bottom:90px;
-		right:0;
 		color:#fff;
 		letter-spacing: 1px;
 		font-weight: 200;
 		text-align: right;
+		margin: 120px 0 0 0;
+		float: right;
+		max-width: 500px;
 	}
 
 		#home .textBox .word1{
 			font-weight: 900;
-			font-size: 72px;
-			line-height: 72px;
+			font-size:  48px;
+			line-height: 52px;
 			text-align: right;
 			letter-spacing: 3px;
 			text-transform: uppercase;
@@ -399,8 +396,8 @@ section.contentpage{
 		#home .textBox .word2{
 			font-style: normal;
 			font-weight: 300;
-			font-size: 72px;
-			line-height: 72px;
+			font-size: 32px;
+			line-height: 42px;
 			text-align: right;
 			letter-spacing: 3px;
 			text-transform: uppercase;
@@ -424,16 +421,13 @@ section.contentpage{
 
 			.slider {
 					width: 100%;
-					height:100%;
 				    position: relative;
 				    overflow: hidden;
-				    border-radius: 10px;
 				}
 
 				.sliderwrapper {
 					display: block;
 					width: 100%;
-					height:100%;
 					overflow: hidden;
 				    position: relative;
 				    width: 400%;
@@ -451,23 +445,29 @@ section.contentpage{
 				}
 
 				.slide {
+					position: relative;
 				    width: 25%;
-				    height:100%;
 				    list-style: none;
 				    float: left;
-				    background:linear-gradient(90deg, rgba(0, 0, 0, 0.69) 0%, rgba(20, 32, 44, 0.69) 100%), url('slide.jpg') no-repeat center bottom;
 				    background-position: center;
 				    background-size: cover;
 				}
 				
 					.slideContent {
-						position: relative;
+						position: absolute;
+						top:0;
+						right:0;
 						width: 100%;
-		    			max-width: 1200px;
-		    			height: 100%;
-						padding: 60px 5px 60px 5px;
+						padding: 60px 50px 0px 50px;
 						margin: auto;
+						z-index: 4;
 					}
+						.slideContent-box{
+							width: 100%;
+							max-width: 1200px;
+			    			height: 100%;
+			    			margin: auto;
+						}
 
 				.prev-btn, .next-btn {
 				    position: absolute;
@@ -971,10 +971,23 @@ footer{
 	    letter-spacing: 1px;
 	    font-weight: 200;
 	    text-align: right;
-	    padding-top: 50px;
-	    padding-right: 45px;
-	     padding-left: 45px;
+	    padding-top: 10px;
+	    padding-right: 15px;
+	     padding-left: 15px;
+	     margin:0;
 	}
+
+.slideContent {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height:100%;
+    padding: 60px 50px 0px 50px;
+    margin: auto;
+    z-index: 4;
+    background: rgba(0,0,0,0.5);
+}
 
 	header.header, header.header.small{
 		padding: 20px;

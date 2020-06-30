@@ -8,6 +8,9 @@ $(document).ready(function() {
 
     var switchInterval = setInterval(nextSlide, slideInterval);
 
+    var height = $('.sliderwrapper li:nth-child(1) img').height();
+    $('.sliderwrapper').css('height', height+'px');
+
     $('#home').hover(function() {
         clearInterval(switchInterval);
     }, function() {
@@ -38,6 +41,8 @@ function nextSlide() {
         });
         slideNow++;
     }
+    var height = $('.sliderwrapper li:nth-child('+slideNow+') img').height();
+    $('.sliderwrapper').css('height', height+'px');
 }
 
 function prevSlide() {
@@ -58,4 +63,6 @@ function prevSlide() {
         });
         slideNow--;
     }
+    var height = $('.sliderwrapper li:nth-child('+slideNow+') img').height();
+    $('.sliderwrapper').css('height', height+'px');
 }
