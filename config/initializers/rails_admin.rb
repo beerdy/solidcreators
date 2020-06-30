@@ -38,4 +38,18 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+  config.model Slider do
+    include_all_fields
+    exclude_fields :updated_at, :created_at
+    edit do
+      # For RailsAdmin >= 0.5.0
+      field :description, :ck_editor do
+        config_js ActionController::Base.helpers.asset_path('config.js')
+      end
+      # For RailsAdmin < 0.5.0
+      # field :description do
+      #   ckeditor true
+      # end
+    end
+  end
 end

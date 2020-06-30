@@ -28,12 +28,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'devise'
 gem 'rails_admin', '~> 2.0'
 gem 'paperclip',   '~> 6.0.0'
+gem 'ckeditor'
 
 gem 'yaml_db'
 gem 'mysql2'
