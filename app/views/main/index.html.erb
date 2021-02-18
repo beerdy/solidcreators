@@ -47,11 +47,11 @@ function bigMenu(it){
 </script>
 <header class="header animated fadeInDown">
   <nav class="menu">
-    <a href="/" class="logoBlock"><b>Solid</b> Creators</a><div class="iteamPr"></div>
+    <a href="/" class="logoBlock <%= @hide_logo %>"><b>Solid</b> Creators</a><div class="iteamPr <%= @hide_logo %>"></div>
     <a href="#service" class="iteam" onclick="return pageTo('service');">Услуги</a>
     <a href="#projects" class="iteam" onclick="return pageTo('projects');">Работы</a>
     <a href="#contacts" class="iteam" onclick="return pageTo('contacts');">Контакты</a>
-    <a href="#order" class="orderB" onclick="return pageTo('order');">Заказать</a>
+    <a href="#order" class="orderB" onclick="return pageTo('contacts');">Заказать звонок</a>
     <a class="menuiBlock" href="/contacts" onclick="return bigMenu(this);"><span></span></a>
   </nav>
 </header>
@@ -64,9 +64,9 @@ function bigMenu(it){
         <div class="slideContent">
           <div class="slideContent-box">
           <div class="textBox">
-            <div class="word1"><%= slide.word1.html_safe if slide.word1 %></div>
-            <div class="word2"><%= slide.word2.html_safe if slide.word2 %></div>
-            <p><%= slide.description.html_safe if slide.description %></p>
+            <div class="word1"><%= slide.word1.try(:html_safe) if slide.word1 %></div>
+            <div class="word2"><%= slide.word2.try(:html_safe) if slide.word2 %></div>
+            <p><%= slide.description.try(:html_safe) if slide.description %></p>
           </div>
           </div>
         </div>
@@ -74,8 +74,8 @@ function bigMenu(it){
       </li>
       <% end %>
     </ul>
-    <div class="prev-btn"></div>
-    <div class="next-btn"></div>
+    <div class="prev-btn <%= @hidden_btn_slider %>"></div>
+    <div class="next-btn <%= @hidden_btn_slider %>"></div>
   </div>
 </section>
 
@@ -84,12 +84,12 @@ function bigMenu(it){
     <div class="contentpage_box_flex">
       <div class="headerLine">
         <div class="headerLineGeneral">услуги</div>
-        <div class="headerLineSmall"><%= @services.html_safe %></div>
+        <div class="headerLineSmall"><%= @services.try(:html_safe) %></div>
       </div>
       <% Product.all.each do |product| %>
       <div class="serviceIteam" style="background:url('<%= product.gallery.url %>') no-repeat left top;">
         <h3><%= product.title %></h3>
-        <p><%= product.description.html_safe if product.description %></p>
+        <p><%= product.description.try(:html_safe) if product.description %></p>
       </div>
       <% end %>
       <a class="serviceIteam button" onclick="return pageTo('order');" href="#order">
@@ -99,12 +99,12 @@ function bigMenu(it){
   </div>
 </section>
 
-<section id="order" class="contentpage">
+<section id="order" class="contentpage <%= 'minimal' unless @hide_order == '' %>">
   <div class="contentpage_box">
     <div class="contentpage_box_flex">
-      <div class="headerLineCenter">Сделать заказ</div>
-      <p><%= @makeorder.html_safe %></p>
-      <%= form_with(model: @message, id: 'form1') do |form| %>
+      <div class="headerLineCenter <%= @hide_order %>">Сделать заказ</div>
+      <p><%= @makeorder.try(:html_safe) %></p>
+      <%= form_with(model: @message, id: 'form1', class: @hide_order ) do |form| %>
         <% if @message.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
@@ -124,7 +124,7 @@ function bigMenu(it){
         </div>
         <input type="submit" class="buttonA" value="Отправить"> 
       <% end %>
-      <small>При отправке формы Вы соглашаетесь на обработку персональных данных</small>
+      <small class="politics  <%= @hide_order %>">При отправке формы Вы соглашаетесь на обработку персональных данных</small>
     </div>
   </div>
 </section>
@@ -133,13 +133,13 @@ function bigMenu(it){
   <div class="contentpage_box">
     <div class="contentpage_box_flex">
       <div class="headerLine">
-        <div class="headerLineGeneral">Проекты</div>
-        <div class="headerLineSmall"><%= @projects.html_safe %></div>
+        <div class="headerLineGeneral">Работы</div>
+        <div class="headerLineSmall"><%= @projects.try(:html_safe) %></div>
       </div>
       <% Project.all.each do |project| %>
       <div class="projectIteam">
         <h3><%= project.title.upcase %></h3>
-        <p><%= project.description.html_safe if project.description %></p>
+        <p><%= project.description.try(:html_safe) if project.description %></p>
         <div class="image" style="background-image:url('<%= project.gallery.url %>')"></div>
       </div>
       <% end %>
@@ -151,14 +151,16 @@ function bigMenu(it){
   <div class="contentpage_box">
     <div class="contentpage_box_flex">
       <div class="headerLineCenter">Контакты</div>
-      <p><%= @contacts.html_safe %></p>
+      <p><%= @contacts.try(:html_safe) %></p>
       <div style="overflow:hidden;margin:0 0 20px 0;">
-        <div class="phone"><%= @phone.html_safe %></div>
-        <div class="mail"><%= @email.html_safe %></div>
-        <div class="place"><%= @place.html_safe %></div>
+        <div class="phone"><%= @phone.try(:html_safe) %></div>
+        <div class="mail"><%= @email.try(:html_safe) %></div>
+        <div class="place"><%= @place.try(:html_safe) %></div>
       </div>
-      <%= @map.html_safe %>
-      <h4>Обратная связь</h4>
+      <%= @map.try(:html_safe) %>
+    </div>
+    <div class="contentpage_box_flex">
+      <div class="headerLineCenter">ОБРАТНАЯ СВЯЗЬ</div>
       <%= form_with(model: @message, id: 'form2' ) do |form| %>
         <% if @message.errors.any? %>
           <div id="error_explanation">
@@ -176,7 +178,7 @@ function bigMenu(it){
           <%= form.text_field :title, value:  "Обратная связь",  class: "typeLine", type: 'hidden' %>
           <%= form.text_field :name,  placeholder:  "Ваше имя",  class: "typeLine" %>
           <%= form.text_field :phone, placeholder: "+7 ___",     class: "typeLine" %>
-          <%= form.text_field :slave, placeholder: "Тема вопроса", class: "typeLine" %>
+          <!-- <%= form.text_field :slave, placeholder: "Тема вопроса", class: "typeLine" %> -->
           <%= form.text_area  :description, placeholder: "Опишите подробности обращения", class: "typeTexta" %>
         </div>
 
@@ -194,7 +196,7 @@ function bigMenu(it){
 </footer>
 
 <div class="bigMenu">
-  <a class="bigMenu_list order" href="#order" onclick="pageTo('order');">Заказать</a>
+  <a class="bigMenu_list order" href="#order" onclick="pageTo('contacts');">Заказать звонок</a>
     <a class="bigMenu_list" href="#service" onclick="pageTo('service');">Услуги</a>
     <a class="bigMenu_list" href="#projects" onclick="pageTo('projects');">Работы</a>
     <a class="bigMenu_list" href="#contacts" onclick="pageTo('contacts');">Контакты</a>

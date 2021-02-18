@@ -10,10 +10,10 @@
     </style>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <%= @head_body.html_safe %>
+    <%= @head_body.try(:html_safe) %>
   </head>
   <body>
     <%= yield %>
-    <%= @footer.html_safe %>
+    <%= @footer.try(:html_safe) %>
   </body>
 </html>

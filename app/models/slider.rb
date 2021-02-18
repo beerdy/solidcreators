@@ -7,7 +7,6 @@ class Slider < ApplicationRecord
   validates_attachment_presence :gallery, presence: false
   validates_attachment_content_type :gallery, :content_type => /\Aimage\/.*\Z/
   validates_attachment_size :gallery, :less_than => 200.kilobytes
-  # add a delete_<asset_name> method: 
   attr_accessor :delete_gallery
   before_validation { self.gallery.clear if self.delete_gallery == '1' }
 end

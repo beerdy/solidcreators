@@ -232,7 +232,7 @@ header.header{
 	overflow: hidden;
 	width:100%;
 	z-index: 999;
-	padding:75px 0 0 0;
+	padding: 16px 0 0 0;
 }
 
 header.header.small{
@@ -251,29 +251,31 @@ header.header.small{
 		margin:auto;
 	}
 
-		a.logoBlock{
-			display: block;
-			width:187px;
-			height:50px;
-			line-height: 50px;
-			float:left;
-			color:#fff;
-			font-size: 16px;
-			letter-spacing: 3px;
-			text-transform: uppercase;
-		}
-			a.logoBlock b{
-				color:#E3B873;
-			}
-
-		.iteamPr{
-			display: block;
-			float: left;
-			width:1px;
-			height:30px;
-			background: #E3B873;
-			margin:10px 25px 10px 25px;
-		}
+a.logoBlock{
+	display: block;
+	width:187px;
+	height:50px;
+	line-height: 50px;
+	float:left;
+	color:#fff;
+	font-size: 16px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+a.logoBlock b{
+	color:#E3B873;
+}
+.iteamPr{
+	display: block;
+	float: left;
+	width:1px;
+	height:30px;
+	background: #E3B873;
+	margin:10px 25px 10px 25px;
+}
+.logoBlock.hidden, .iteamPr.hidden {
+	display: none;
+}
 
 		a.iteam{
 			font-family: 'Montserrat', sans-serif;
@@ -297,10 +299,12 @@ header.header.small{
 			display: block;
 			float: right;
 			font-size: 14px;
-			line-height: 50px;
+			line-height: 28px;
 			color: #1C2C39;
 			text-align: center;
-			letter-spacing: 3px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			padding: 0 7px;
 			background: #E3B873;
 		}
 
@@ -469,30 +473,30 @@ section.contentpage{
 			    			margin: auto;
 						}
 
-				.prev-btn, .next-btn {
-				    position: absolute;
-				    width: 32px;
-				    height: 32px;
-				    top: calc(50% - 16px);
-				    z-index: 5;
-				    background:#fff;
-				}
-
-					.prev-btn:hover, .next-btn:hover {
-					    cursor: pointer;
-					}
-
-					.prev-btn {
-					    left: 20px;
-					    background:image-url('prev.svg') no-repeat center;
-					    background-size: cover;
-					}
-
-					.next-btn {
-					    right: 20px;
-					    background:image-url('next.svg') no-repeat center;
-					    background-size: cover;
-					}
+.prev-btn, .next-btn {
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	top: calc(50% - 16px);
+	z-index: 5;
+	background:#fff;
+}
+.prev-btn:hover, .next-btn:hover {
+	cursor: pointer;		
+}
+.prev-btn {
+	left: 20px;
+	background:image-url('prev.svg') no-repeat center;
+	background-size: cover;
+}
+.next-btn {
+	right: 20px;
+	background:image-url('next.svg') no-repeat center;
+	background-size: cover;
+}
+.next-btn.hidden, .prev-btn.hidden {
+	display: none;
+}
 
 #service{
 	overflow: hidden;
@@ -566,33 +570,38 @@ section.contentpage{
 	overflow: hidden;
 	background: #1B212F;
 }
-	#order p{
-		color:#fff;
-	}
-	
-	#order input.typeLine{
-		display: block;
-		width:31.33%;
-		float:left;
-		margin:1%;
-	}
+#order p{
+	color:#fff;
+}
 
-	#order input.buttonA{
-		clear: both;
-		margin:20px auto 0;
-	}
+#order input.typeLine{
+	display: block;
+	width:31.33%;
+	float:left;
+	margin:1%;
+}
 
-	#order small{
-		display: block;
-		margin: 20px auto;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 12px;
-		line-height: 17px;
-		text-align: center;
-		color: #535C72;
-	}
+#order input.buttonA{
+	clear: both;
+	margin:20px auto 0;
+}
 
+#order small{
+	display: block;
+	margin: 20px auto;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 17px;
+	text-align: center;
+	color: #535C72;
+}
+
+#order {
+	#form1.hidden, .headerLineCenter.hidden, .politics.hidden {
+		display: none;
+	}
+}
 
 #projects{
 	overflow: hidden;
@@ -793,6 +802,9 @@ footer{
 
 .message.error{
 	background:#a20000;
+}
+.menu .iteam {
+	text-transform: uppercase;
 }
 
 .menuiBlock{
@@ -1097,4 +1109,7 @@ footer{
 		margin:1% 0 1% 0;
 	}
 
+}
+.minimal {
+	padding: 30px 5px 10px 5px !important;
 }
