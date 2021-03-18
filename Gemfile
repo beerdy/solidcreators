@@ -36,6 +36,7 @@ gem 'devise'
 gem 'rails_admin', '~> 2.0'
 gem 'paperclip',   '~> 6.0.0'
 gem 'ckeditor'
+gem "wysiwyg-rails"
 
 gem 'yaml_db'
 gem 'mysql2'

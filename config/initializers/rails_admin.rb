@@ -42,6 +42,14 @@ RailsAdmin.config do |config|
     include_all_fields
     exclude_fields :updated_at, :created_at
     edit do
+      # field :description,  :froala do
+      #   config_options do
+      #     {
+      #       inlineMode: true,
+      #       paragraphy: true
+      #     }
+      #   end
+      # end
       # For RailsAdmin >= 0.5.0
       field :description, :ck_editor do
         config_js ActionController::Base.helpers.asset_path('config.js')

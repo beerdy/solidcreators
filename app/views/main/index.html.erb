@@ -159,7 +159,7 @@ function bigMenu(it){
       </div>
       <%= @map.try(:html_safe) %>
     </div>
-    <div class="contentpage_box_flex">
+    <div class="contentpage_box_flex no-middle">
       <div class="headerLineCenter">ОБРАТНАЯ СВЯЗЬ</div>
       <%= form_with(model: @message, id: 'form2' ) do |form| %>
         <% if @message.errors.any? %>
