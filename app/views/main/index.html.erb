@@ -152,16 +152,17 @@ function bigMenu(it){
     <div class="contentpage_box_flex no-middle">
       <div class="headerLineCenter">Контакты</div>
       <p><%= @contacts.try(:html_safe) %></p>
-      <div style="overflow:hidden;margin:0 0 20px 0;">
-        <div class="phone"><%= @phone.try(:html_safe) %></div>
-        <div class="mail"><%= @email.try(:html_safe) %></div>
-        <div class="place"><%= @place.try(:html_safe) %></div>
+      <div class="left-box">
+        <div style="overflow:hidden;margin:0 0 20px 0;">
+          <div class="phone"><%= @phone.try(:html_safe) %></div>
+          <div class="mail"><%= @email.try(:html_safe) %></div>
+          <div class="place"><%= @place.try(:html_safe) %></div>
+        </div>
+        <%= @map.try(:html_safe) %>
       </div>
-      <%= @map.try(:html_safe) %>
-    </div>
-    <div class="contentpage_box_flex no-middle">
-      <div class="headerLineCenter">ОБРАТНАЯ СВЯЗЬ</div>
-      <%= form_with(model: @message, id: 'form2' ) do |form| %>
+      <div class="right-box">
+        <h2>Обратная связь</h2>
+        <%= form_with(model: @message, id: 'form2' ) do |form| %>
         <% if @message.errors.any? %>
           <div id="error_explanation">
             <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
@@ -174,7 +175,7 @@ function bigMenu(it){
           </div>
         <% end %>
 
-        <div style="overflow:hidden">
+        <div class="form">
           <%= form.text_field :title, value:  "Обратная связь",  class: "typeLine", type: 'hidden' %>
           <%= form.text_field :name,  placeholder:  "Ваше имя",  class: "typeLine" %>
           <%= form.text_field :phone, placeholder: "+7 ___",     class: "typeLine" %>
@@ -186,6 +187,7 @@ function bigMenu(it){
       <% end %>
 
       <small>При отправке формы Вы соглашаетесь на обработку персональных данных</small>
+      </div>
     </div>
   </div>
 </section>

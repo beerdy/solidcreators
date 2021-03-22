@@ -762,6 +762,32 @@ section.contentpage{
 		margin:20px auto 0;
 	}
 
+	#contacts .left-box{
+		width:50%;
+		float:left;
+	}
+	
+	#contacts .right-box{
+		width:48%;
+		float:left;
+		background:#3b424f;
+		margin:1%;
+		padding:40px 20px 40px 20px;
+	}
+
+	#contacts .right-box h2{
+		font-size: 24px;
+		text-align: center;
+		margin:0 0 20px 0;
+	}
+
+	#contacts .right-box small{
+		font-size: 12px;
+		text-align: center;
+		margin:17px 0 0 0;
+		display: block;
+		color:#fff;
+	}
 
 .buttonUp{
 	display: none;
@@ -973,6 +999,19 @@ footer{
 
 
 @media screen and (max-width: 640px) {
+
+	#contacts .left-box{
+		width:100%;
+		float:none;
+	}
+	
+	#contacts .right-box{
+		width:100%;
+		float:none;
+		background:#3b424f;
+		padding:20px;
+		margin:20px 0 0 0;
+	}
 
 	.menuiBlock {
 	    display: block;
